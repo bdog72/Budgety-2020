@@ -1,42 +1,41 @@
 //
 //
-// console.log('Bozo');
+console.log('Bozo');
 
-// ES5
-// var name5 = 'Jane Smith';
-// var age5 = 23;
-// name5 = 'Jane Miller';
-// console.log(name5);
+const boxes = document.querySelectorAll('.box');
 
-// ES6
-// const name6 = 'Jane Smith';
-// let age6 = 23;
-// name6 = 'Jane Miller';
-// console.log(name6);
+// var boxesArr5 = Array.prototype.slice.call(boxes);
 
-// ES5
-function driversLicense5(passedTest) {
-  if (passedTest) {
-    var firstName = 'John';
-    console.log(firstName);
-    var yearOfBirth = 1990;
+// boxesArr5.forEach(function (cur) {
+//   cur.style.backgroundColor = 'dodgerblue';
+// });
+
+const boxesArr6 = Array.from(boxes);
+boxesArr6.forEach((cur) => (cur.style.backgroundColor = 'dodgerblue'));
+
+// for (var i = 0; i < boxesArr5.length; i++) {
+//   if (boxesArr5[i].className === 'box blue') {
+//     continue;
+//   }
+//   boxesArr5[i].textContent = 'I changed to blue';
+// }
+
+for (const cur of boxesArr6) {
+  if (cur.className.includes('blue')) {
+    continue;
   }
-  console.log(`${firstName} was born in ${yearOfBirth}`);
-}
-driversLicense5(true);
-
-// ES6
-function driversLicense6(passedTest) {
-  let firstName;
-  console.log(firstName);
-  const yearOfBirth = 1990;
-
-  if (passedTest) {
-    firstName = 'John';
-  }
-  console.log(`${firstName} was born in ${yearOfBirth}`);
+  cur.textContent = 'I changed to blue';
 }
 
-driversLicense6(true);
+var ages = [12, 17, 8, 21, 14, 11];
 
-let i = 23;
+var full = ages.map(function (cur) {
+  return cur >= 18;
+});
+
+console.log(full);
+
+console.log(full.indexOf(true));
+console.log(ages[full.indexOf(true)]);
+
+console.log(ages.findIndex((cur) => cur >= 18));
